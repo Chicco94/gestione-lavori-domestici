@@ -3,6 +3,6 @@ svuotare_lavastoviglie 	|M|1|1|1|1|1|1|1
 riempire_lavastoviglie 	|M|1|1|1|1|1|1|1
 svuotare_lavastoviglie 	|P|1|1|1|1|1|1|1
 riempire_lavastoviglie 	|P|1|1|1|1|1|1|1
-spazzare_per_terra_giù	| | | | |1| | | 
-spazzare_per_terra_su	| | | | | |1| | 
-piegare_lenzuola		| | | | | | |2| 
+spazzare_per_terra_giù	|M| | | |1| | | 
+spazzare_per_terra_su	|M| | | | |1| | 
+piegare_lenzuola		|P| | | | | |2| 

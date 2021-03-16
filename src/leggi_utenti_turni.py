@@ -21,5 +21,5 @@ def read_line_content(line:str)->tuple:
 	values = line.replace(' ','').replace('\t','').split('|')
 	person = values[0]
 	time = values[1]
-	days = [True if (x=='1') else False for x in values[2:]]
+	days = [1 if (x=='1') else 0 for x in values[2:]]
 	return person,time,days

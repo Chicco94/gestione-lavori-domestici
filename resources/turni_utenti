@@ -1,11 +1,13 @@
+# Questo file va riempito con un 1 in ogni casella dove l'utente può lavorare
+#
 #persona	|H|L|M|M|G|V|S|D
-enrico		|M| | | | | | | 
-alberto	 	|M| | | | | | | 
-carlo		|M| | | | | | | 
-mamma		|M| | | | | | | 
-papà		|M| | | | | | | 
-enrico	 	|P| | | | | | | 
-alberto	 	|P| | | | | | | 
-carlo	 	|P| | | | | | | 
-mamma	 	|P| | | | | | | 
-papà		|P| | | | | | | 
+enrico		|M| |1| | |1|1|1
+alberto	 	|M| | | | | |1|1
+carlo		|M| | | |1|1|1|1
+mamma		|M|1|1|1|1|1|1|1
+papà		|M|1|1|1|1|1|1|1
+enrico	 	|P| |1| | |1|1|1
+alberto	 	|P| | | | | |1|1
+carlo	 	|P| | | |1|1|1|1
+mamma	 	|P|1|1|1|1|1|1|1
+papà		|P|1|1|1|1|1|1|1
