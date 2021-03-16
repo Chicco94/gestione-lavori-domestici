@@ -5,9 +5,14 @@
 lavastoviglie		 	|M|1|1|1|1|1|1|1
 lavastoviglie 			|S|1|1|1|1|1|1|1
 apparecchiare			|P|1|1|1|1|1|1|1
+cucinare				|P|1|1|1|1|1|1|1
+cucinare				|S|1|1|1|1|1| |1
 apparecchiare			|S|1|1|1|1|1|1|1
 svuotare_carta			|S| |1| | |1| | 
 svuotare_plastica		|S|1| | |1| | | 
 piegare_bucato			|A| | | |1|1|1|1
 piegare_lenzuola		|A| | | | | | | 
 fare_dolce				|A| | | | | | |1
+turno_nonno				|S| | | | | | | 
+bagno_giù				|S| | | | | | | 
+bagno_su				|S| | | | | | | 

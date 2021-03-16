@@ -1,7 +1,7 @@
 # Questo file va riempito con un 1 in ogni casella dove l'utente può lavorare
 #
-#persona	|H|L|M|M|G|V|S|D
 #		Mattina
+#
 #persona	|H|L|M|M|G|V|S|D
 enrico		|M| | | | | |1|1
 alberto	 	|M| | | | | |1|1
@@ -14,10 +14,10 @@ samantha	|M| | | | | | |
 #		Pranzo
 #
 #persona	|H|L|M|M|G|V|S|D
-enrico		|P|1|1|1|1|1|1|1
+enrico		|P|2|2|2|2|2|1|1
 alberto	 	|P| | | | | |1|1
 carlo		|P| | | | | |1|1
-mamma		|P| | | | | |1|1
+mamma		|P| | | | | |2|2
 papà		|P| | | | | |1|1
 giulia		|P| | | | | | | 
 samantha	|P| | | | | | | 
@@ -39,7 +39,7 @@ samantha	|A| | | | | | |
 enrico	 	|S|1|1|1|1|1|1|1
 alberto	 	|S|1|1|1|1|1|1|1
 carlo	 	|S|1|1|1|1|1|1|1
-mamma	 	|S| | | | | | | 
+mamma	 	|S| | | | | |1|1
 papà		|S|1|1|1|1|1|1|1
 giulia		|S| | | | | | | 
 samantha	|S| | | | | | | 
