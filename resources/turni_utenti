@@ -1,13 +1,45 @@
 # Questo file va riempito con un 1 in ogni casella dove l'utente può lavorare
 #
 #persona	|H|L|M|M|G|V|S|D
-enrico		|M| |1| | |1|1|1
+#		Mattina
+#persona	|H|L|M|M|G|V|S|D
+enrico		|M| | | | | |1|1
 alberto	 	|M| | | | | |1|1
-carlo		|M| | | |1|1|1|1
-mamma		|M|1|1|1|1|1|1|1
+carlo		|M| | | | | |1|1
+mamma		|M| | | | | | | 
 papà		|M|1|1|1|1|1|1|1
-enrico	 	|P| |1| | |1|1|1
+giulia		|M| | | | | | | 
+samantha	|M| | | | | | | 
+#
+#		Pranzo
+#
+#persona	|H|L|M|M|G|V|S|D
+enrico		|P|1|1|1|1|1|1|1
 alberto	 	|P| | | | | |1|1
-carlo	 	|P| | | |1|1|1|1
-mamma	 	|P|1|1|1|1|1|1|1
-papà		|P|1|1|1|1|1|1|1
+carlo		|P| | | | | |1|1
+mamma		|P| | | | | |1|1
+papà		|P| | | | | |1|1
+giulia		|P| | | | | | | 
+samantha	|P| | | | | | | 
+#
+#		Pomeriggio
+#
+#persona	|H|L|M|M|G|V|S|D
+enrico		|A| |1| | |1|1|1
+alberto	 	|A| | | | | |1|1
+carlo		|A| | | |1|1|1|1
+mamma		|A| | | | | | | 
+papà		|A| | | | | |1|1
+giulia		|A| | | | | | | 
+samantha	|A| | | | | | | 
+#
+#		Sera
+#
+#persona	|H|L|M|M|G|V|S|D
+enrico	 	|S|1|1|1|1|1|1|1
+alberto	 	|S|1|1|1|1|1|1|1
+carlo	 	|S|1|1|1|1|1|1|1
+mamma	 	|S| | | | | | | 
+papà		|S|1|1|1|1|1|1|1
+giulia		|S| | | | | | | 
+samantha	|S| | | | | | | 

@@ -12,7 +12,7 @@ def main() -> bool:
 	global LAVORI_SETTIMANALI
 	ore_disponibili = get_totale_ore(UTENTI_TURNI)
 	ore_necessarie = get_totale_ore(LAVORI_SETTIMANALI)
-	print("Questa settimana sono necessarie {} ore\n a disposizione ci sono {} ore".format(ore_necessarie,ore_disponibili))
+	print("Questa settimana sono necessari {} slot\n a disposizione ci sono {} slot".format(ore_necessarie,ore_disponibili))
 
 	ore_disponibili_iniziali = {}
 	for user in UTENTI_TURNI:

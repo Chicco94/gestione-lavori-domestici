@@ -39,12 +39,13 @@ def get_totale_ore(schedule,element='')-> int:
 
 def rewrite_needed_jobs_as_weeklist(LAVORI_SETTIMANALI) -> list:
 	''' Dato un dizionario {lavoro:{orario:[lista_di_necessità]}},
+	orario può assumere i seguenti valori: mattina,pranzo,pomeriggio,sera
 	ritorna una lista dove ogni elemento è un dizionario dei lavori necessari quel giorno
-	[lavori_lunedì_mattina,lavori_martedì_mattina,...,lavori_domenica_pomeriggio]'''
-	res_list = [{} for x in range(14)]
+	[lavori_lunedì_mattina,lavori_martedì_mattina,...,lavori_domenica_sera]'''
+	res_list = [{} for x in range(28)]
 	for lavoro,turno in LAVORI_SETTIMANALI.items():
 		for orario,giorni in turno.items():
-			i = 0 if orario == 'M' else 7 
+			i = orario_to_start_index[orario]
 			for giorno in giorni:
 				if giorno>0:
 					res_list[i][lavoro]=giorno
@@ -52,10 +53,16 @@ def rewrite_needed_jobs_as_weeklist(LAVORI_SETTIMANALI) -> list:
 	return res_list
 
 
+def get_time_from_index(index_of_day) -> str:
+	if index_of_day < 7: return 'M'
+	if 7 <= index_of_day < 14: return 'P'
+	if 14 <= index_of_day < 21: return 'A'
+	if 21 <= index_of_day: return 'S'
+
 def get_available_user(UTENTI_TURNI,index_of_day) -> list:
 	'''Ritorna la lista di utenti disponibili in quello specifico momento'''
 	available_users = []
-	time = 'M' if index_of_day < 7 else 'P'
+	time = get_time_from_index(index_of_day)
 	day = index_of_day % 7
 	for user,turn in UTENTI_TURNI.items():
 		if turn[time][day]>0:
@@ -77,7 +84,7 @@ def get_less_loaded_user(available_users,work_week) -> str:
 
 def update_TURNI_UTENTI(UTENTI_TURNI,user,index_of_day) -> dict:
 	''' aggiorna il dizionario dei turni degli utenti'''
-	time = 'M' if index_of_day < 7 else 'P'
+	time = get_time_from_index(index_of_day)
 	day = index_of_day % 7
 	UTENTI_TURNI[user][time][day] -= 1
 	return UTENTI_TURNI
@@ -97,6 +104,14 @@ def get_schedule(UTENTI_TURNI,LAVORI_SETTIMANALI) -> dict:
 			for _ in range(needed_users):
 				available_users = get_available_user(UTENTI_TURNI,index_of_day)
 				user = get_less_loaded_user(available_users,work_week)
+				if not user:
+					time = get_time_from_index(index_of_day)
+					day = index_of_day % 7
+					print('Impossibile completare per {} {}'.format(
+						giorni_settimana[day],
+						momenti_giorno[time]
+					))
+					return work_week
 				UTENTI_TURNI = update_TURNI_UTENTI(UTENTI_TURNI,user,index_of_day)
 				list_of_users.append(user)
 			assign(work_week,job,list_of_users,index_of_day)
@@ -106,25 +121,41 @@ def get_schedule(UTENTI_TURNI,LAVORI_SETTIMANALI) -> dict:
 def pretty_print(work_week):
 	'''Stampa leggibile dei lavori della settimana'''
 	res_str = ''
-	for index_of_day,day in enumerate(work_week):
-		res_str += "\n"+giorni_settimana[index_of_day]+"\n"
+	for index_of_day,day in enumerate(work_week[0:7]):
+		res_str += "\n\n"+giorni_settimana[index_of_day]+"\n\t\tMattina\n"
 		for job,users in day.items():
+			res_str += "\t{} svolto da {}\n".format(job,','.join(users))
+		res_str +="\t\tPranzo\n"
+		for job,users in work_week[index_of_day+7].items():
+			res_str += "\t{} svolto da {}\n".format(job,','.join(users))
+		res_str +="\t\tPomeriggio\n"
+		for job,users in work_week[index_of_day+14].items():
+			res_str += "\t{} svolto da {}\n".format(job,','.join(users))
+		res_str +="\t\tSera\n"
+		for job,users in work_week[index_of_day+21].items():
 			res_str += "\t{} svolto da {}\n".format(job,','.join(users))
 	print(res_str)
 
+orario_to_start_index = {
+	'M':0,
+	'P':7,
+	'A':14,
+	'S':21
+}
+
 giorni_settimana = {
-	0:'lunedì mattina',
-	1:'martedì mattina',
-	2:'mercoledì mattina',
-	3:'giovedì mattina',
-	4:'venerdì mattina',
-	5:'sabato mattina',
-	6:'domenice mattina',
-	7:'lunedì pomeriggio',
-	8:'martedì pomeriggio',
-	9:'mercoledì pomeriggio',
-	10:'giovedì pomeriggio',
-	11:'venerdì pomeriggio',
-	12:'sabato pomeriggio',
-	13:'domenice pomeriggio'
+	0:'LUNEDI\'',
+	1:'MARTEDI\'',
+	2:'MERCOLEDI\'',
+	3:'GIOVEDI\'',
+	4:'VENERDI\'',
+	5:'SABATO',
+	6:'DOMENICA'
+}
+
+momenti_giorno = {
+	'M':'Mattino',
+	'P':'Pranzo',
+	'A':'Pomeriggio',
+	'S':'Sera'
 }

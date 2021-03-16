@@ -1,8 +1,13 @@
+# Questo file va riempito con il numero di persone necessarie 
+# per ogni casella di ogni lavoro
+#
 #nome lavoro			|T|L|M|M|G|V|S|D
-svuotare_lavastoviglie 	|M|1|1|1|1|1|1|1
-riempire_lavastoviglie 	|M|1|1|1|1|1|1|1
-svuotare_lavastoviglie 	|P|1|1|1|1|1|1|1
-riempire_lavastoviglie 	|P|1|1|1|1|1|1|1
-spazzare_per_terra_giù	|M| | | |1| | | 
-spazzare_per_terra_su	|M| | | | |1| | 
-piegare_lenzuola		|P| | | | | |2| 
+lavastoviglie		 	|M|1|1|1|1|1|1|1
+lavastoviglie 			|S|1|1|1|1|1|1|1
+apparecchiare			|P|1|1|1|1|1|1|1
+apparecchiare			|S|1|1|1|1|1|1|1
+svuotare_carta			|S| |1| | |1| | 
+svuotare_plastica		|S|1| | |1| | | 
+piegare_bucato			|A| | | |1|1|1|1
+piegare_lenzuola		|A| | | | | | | 
+fare_dolce				|A| | | | | | |1
