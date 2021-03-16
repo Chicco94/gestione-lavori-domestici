@@ -61,6 +61,7 @@ def get_time_from_index(index_of_day) -> str:
 	if 14 <= index_of_day < 21: return 'A'
 	if 21 <= index_of_day: return 'S'
 
+
 def get_available_user(UTENTI_TURNI,index_of_day) -> list:
 	'''Ritorna la lista di utenti disponibili in quello specifico momento'''
 	available_users = []
