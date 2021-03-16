@@ -1,6 +1,6 @@
 # Questo file va riempito con un 1 in ogni casella dove l'utente può lavorare
 #
-#		Mattina
+#		Mattina fino alle 9:30
 #
 #persona	|H|L|M|M|G|V|S|D
 enrico		|M| | | | | |1|1
@@ -11,7 +11,7 @@ papà		|M|1|1|1|1|1|1|1
 giulia		|M| | | | | | | 
 samantha	|M| | | | | | | 
 #
-#		Pranzo
+#		Pranzo 12:30-14:30
 #
 #persona	|H|L|M|M|G|V|S|D
 enrico		|P|2|2|2|2|2|1|1
@@ -22,7 +22,7 @@ papà		|P| | | | | |1|1
 giulia		|P| | | | | | | 
 samantha	|P| | | | | | | 
 #
-#		Pomeriggio
+#		Pomeriggio 14:30-19:00
 #
 #persona	|H|L|M|M|G|V|S|D
 enrico		|A| |1| | |1|1|1
@@ -33,7 +33,7 @@ papà		|A| | | | | |1|1
 giulia		|A| | | | | | | 
 samantha	|A| | | | | | | 
 #
-#		Sera
+#		Sera dalle 19:00
 #
 #persona	|H|L|M|M|G|V|S|D
 enrico	 	|S|1|1|1|1|1|1|1
