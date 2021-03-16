@@ -9,32 +9,35 @@ from datetime import datetime
 from src.help_variables import giorni_settimana
 
 
+
 def prepare_document_styles(document):
-	style = document.styles.add_style('mamma',WD_STYLE_TYPE.CHARACTER)
+	# WD_STYLE_TYPE.CHARACTER = 2 Se metto l'elemento dell'enum 
+	# lancia un errore in editor che mi da fastidio
+	style = document.styles.add_style('mamma',2)
 	style.font.bold = True
 	style.font.color.rgb = RGBColor(0xff, 0x00, 0xff)
 
-	style = document.styles.add_style('papà',WD_STYLE_TYPE.CHARACTER)
+	style = document.styles.add_style('papà',2)
 	style.font.bold = True
 	style.font.color.rgb = RGBColor(0x00, 0x00, 0xff)
 
-	style = document.styles.add_style('alberto',WD_STYLE_TYPE.CHARACTER)
+	style = document.styles.add_style('alberto',2)
 	style.font.bold = True
 	style.font.color.rgb = RGBColor(0x00, 0xff, 0x00)
 
-	style = document.styles.add_style('enrico',WD_STYLE_TYPE.CHARACTER)
+	style = document.styles.add_style('enrico',2)
 	style.font.bold = True
 	style.font.color.rgb = RGBColor(0xdc, 0x14, 0x3c)
 
-	style = document.styles.add_style('carlo',WD_STYLE_TYPE.CHARACTER)
+	style = document.styles.add_style('carlo',2)
 	style.font.bold = True
 	style.font.color.rgb = RGBColor(0xff, 0xd7, 0x00)
 
-	style = document.styles.add_style('samantha',WD_STYLE_TYPE.CHARACTER)
+	style = document.styles.add_style('samantha',2)
 	style.font.bold = True
 	style.font.color.rgb = RGBColor(0xff, 0x69, 0xb4)
 
-	style = document.styles.add_style('giulia',WD_STYLE_TYPE.CHARACTER)
+	style = document.styles.add_style('giulia',2)
 	style.font.bold = True
 	style.font.color.rgb = RGBColor(0xff, 0x14, 0x93)
 

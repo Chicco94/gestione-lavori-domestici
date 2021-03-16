@@ -19,7 +19,7 @@ def main() -> bool:
 	schedule = get_schedule(UTENTI_TURNI,LAVORI_SETTIMANALI)
 	footer = '\n\n'
 	for user in UTENTI_TURNI:
-		footer += ('{} ha lavorato per {}/{} questa settimana\n'.format(
+		footer += ('A {} sono stati assegnati {}/{} slot questa settimana\n'.format(
 			user,
 			get_totale_ore_lavorate(schedule,user),
 			ore_disponibili_iniziali[user]
