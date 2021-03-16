@@ -19,7 +19,7 @@ def get_totale_ore_lavorate(work_week,user)-> int:
 	tot_ore = 0
 	for giorno in work_week:
 		for _,users in giorno.items():
-			if user in users:
+			if type(users)==list and user in users:
 				tot_ore +=1
 	return tot_ore
 
@@ -63,21 +63,17 @@ def get_available_user(UTENTI_TURNI,index_of_day) -> list:
 	return available_users
 
 
-def get_less_loaded_user(available_users,UTENTI_TURNI,index_of_day) -> str:
-	time = 'M' if index_of_day < 7 else 'P'
-	day = index_of_day % 7
-	for user in available_users:
-		if UTENTI_TURNI[user][time][day] > 0:
-			return user
-	return None
-
-
-def get_free_user(UTENTI_TURNI,index_of_day) -> str:
+def get_less_loaded_user(available_users,work_week) -> str:
 	'''ritorna il miglior utente che può lavorare in quel giorno'''
-	available_users = get_available_user(UTENTI_TURNI,index_of_day)
-	return get_less_loaded_user(available_users,UTENTI_TURNI,index_of_day)
+	min_loaded_user = None
+	min_load = 99
+	for user in available_users:
+		user_load_so_far = get_totale_ore_lavorate(work_week,user)
+		if user_load_so_far < min_load:
+			min_load = user_load_so_far
+			min_loaded_user = user
+	return min_loaded_user
 	
-
 
 def update_TURNI_UTENTI(UTENTI_TURNI,user,index_of_day) -> dict:
 	''' aggiorna il dizionario dei turni degli utenti'''
@@ -99,7 +95,8 @@ def get_schedule(UTENTI_TURNI,LAVORI_SETTIMANALI) -> dict:
 		for job,needed_users in day.items():
 			list_of_users = []
 			for _ in range(needed_users):
-				user = get_free_user(UTENTI_TURNI,index_of_day)
+				available_users = get_available_user(UTENTI_TURNI,index_of_day)
+				user = get_less_loaded_user(available_users,work_week)
 				UTENTI_TURNI = update_TURNI_UTENTI(UTENTI_TURNI,user,index_of_day)
 				list_of_users.append(user)
 			assign(work_week,job,list_of_users,index_of_day)
