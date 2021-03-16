@@ -1,3 +1,5 @@
+from src.help_variables import giorni_settimana,momenti_giorno,orario_to_start_index
+
 def read_file_content(path)->str:
 	''' Read the content of the resourse file and returns it as a list of lines
 	'''
@@ -28,7 +30,7 @@ def get_totale_ore(schedule,element='')-> int:
 	''' ritorna le ore totali (necessarie o disponibili) di una schedule'''
 	tot_ore = 0
 	for user_or_job,turno in schedule.items():
-		for time,settimana in turno.items():
+		for _,settimana in turno.items():
 			for giorno in settimana:
 				if (element and user_or_job == element):
 					tot_ore += int(giorno)
@@ -134,28 +136,4 @@ def pretty_print(work_week):
 		res_str +="\t\tSera\n"
 		for job,users in work_week[index_of_day+21].items():
 			res_str += "\t{} svolto da {}\n".format(job,','.join(users))
-	print(res_str)
-
-orario_to_start_index = {
-	'M':0,
-	'P':7,
-	'A':14,
-	'S':21
-}
-
-giorni_settimana = {
-	0:'LUNEDI\'',
-	1:'MARTEDI\'',
-	2:'MERCOLEDI\'',
-	3:'GIOVEDI\'',
-	4:'VENERDI\'',
-	5:'SABATO',
-	6:'DOMENICA'
-}
-
-momenti_giorno = {
-	'M':'Mattino',
-	'P':'Pranzo',
-	'A':'Pomeriggio',
-	'S':'Sera'
-}
+	return res_str
